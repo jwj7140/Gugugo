@@ -10,7 +10,7 @@
 
 # Gugugo: Korean translation model based on Polyglot-ko
 
-Polyglot-ko를 기반으로 만들어진 한국어 번역 모델입니다.
+[Polyglot-ko](https://huggingface.co/EleutherAI/polyglot-ko-1.3b)를 기반으로 만들어진 한국어 번역 모델입니다.
 
 ## Gugugo-koen-1.3B-V0.9
 
