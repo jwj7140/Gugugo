@@ -17,11 +17,17 @@ Polyglot-ko를 기반으로 만들어진 한국어 번역 모델입니다.
 ### 데이터셋
 
 [AIHUB "기술과학 분야 한-영 번역 병렬 말뭉치 데이터"](https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=71266)
+
 [AIHUB "일상생활 및 구어체 한-영 번역 병렬 말뭉치 데이터"](https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=71265)
+
 [AIHUB "전문분야 영-한·중-한 번역 말뭉치 (식품)"](https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=71262)
+
 [AIHUB "한국어-영어 번역 말뭉치(기술과학)"](https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=124)
+
 [AIHUB "한국어-영어 번역 말뭉치(사회과학)"](https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=125)
+
 [AIHUB "한국어-영어 번역(병렬) 말뭉치"](https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=126)
+
 
 한국어-영어 전체 약 970만 문장의 데이터를 사용했습니다.
 
@@ -89,8 +95,10 @@ QLoRA를 사용해 RTX4090 24GB 1대로 학습을 진행했습니다.
 ### 한계점
 
 Polyglot-ko를 기반으로 하기 때문에 영어->한글 번역에서 더 성능이 좋습니다.
-Gugugo-koen-1.3B-V0.9는 주로 단문으로 이루어진 데이터셋을 사용해 학습되었습니다. 따라서 장문을 입력받으면 맞게 번역할 가능성이 낮습니다.
-데이터셋에서 구어체의 비중이 적기 때문에 구어체를 번역하는데 문제가 있을 수 있습니다.
+
+단문 데이터로 학습되었기 때문에 장문 번역에서 낮은 성능을 보입니다.
+
+데이터셋에서 구어체의 비중이 적기 때문에 구어체 번역에서 낮은 성능을 보입니다.
 
 ## TO DO LIST
 
