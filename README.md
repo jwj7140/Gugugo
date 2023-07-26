@@ -173,6 +173,5 @@ Polyglot-ko를 기반으로 하기 때문에 영어->한글 번역에서 더 성
 
 ## TO DO LIST
 
-- [sharegpt_deepl_ko 데이터셋](https://huggingface.co/datasets/junelee/sharegpt_deepl_ko)을 활용한 장문 번역 학습
 - 관용어 및 비속어 추가 학습 진행
 - RLHF 강화학습 진행
