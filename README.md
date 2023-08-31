@@ -3,6 +3,7 @@
 </p>
 
 ## Update Logs
+- 2023.09.01: 한국어-일본어 번역 모델인 [🤗Gugugo-koja-1.3B-V0.95](https://huggingface.co/squarelike/Gugugo-koja-1.3B-V0.95)가 추가되었습니다.
 - 2023.07.27: 장문 번역이 학습된 [🤗Gugugo-koen-1.3B-V1.0](https://huggingface.co/squarelike/Gugugo-koen-1.3B-V1.0)를 공개합니다.(QLoRA로 학습, 병합모델)
 - 2023.07.27: [🤗sharegpt_deepl_ko_translation](https://huggingface.co/datasets/squarelike/sharegpt_deepl_ko_translation) 한-영 번역 데이터셋을 공개합니다.
 - 2023.07.18: [🤗Gugugo-koen-1.3B-V0.95](https://huggingface.co/squarelike/Gugugo-koen-1.3B-V0.95)를 공개합니다.(QLoRA로 학습, 병합모델)
@@ -14,15 +15,37 @@
 
 [Polyglot-ko](https://huggingface.co/EleutherAI/polyglot-ko-1.3b)를 기반으로 만들어진 한국어 번역 모델입니다.
 
-## Gugugo-koen-1.3B-V1.0
+## 평가
+| Model                      | type        | BLEU Score |
+|----------------------------|-------------|------------|
+|[Gugugo-koja-1.3B-V0.95](https://huggingface.co/squarelike/Gugugo-koja-1.3B-V0.95)|ja->ko|27.83|
+|[Gugugo-koen-1.3B-V1.0](https://huggingface.co/squarelike/Gugugo-koen-1.3B-V1.0)|en->ko|NaN|
+|[Gugugo-koen-1.3B-V0.95](https://huggingface.co/squarelike/Gugugo-koen-1.3B-V0.95)|en->ko|NaN|
+|[Gugugo-koen-1.3B-V0.9](https://huggingface.co/squarelike/Gugugo-koen-1.3B-V0.9)|en->ko|NaN|
+|[Gugugo-koja-1.3B-V0.95](https://huggingface.co/squarelike/Gugugo-koja-1.3B-V0.95)|ko->ja|15.12|
+|[Gugugo-koen-1.3B-V1.0](https://huggingface.co/squarelike/Gugugo-koen-1.3B-V1.0)|ko->en|NaN|
+|[Gugugo-koen-1.3B-V0.95](https://huggingface.co/squarelike/Gugugo-koen-1.3B-V0.95)|ko->en|NaN|
+|[Gugugo-koen-1.3B-V0.9](https://huggingface.co/squarelike/Gugugo-koen-1.3B-V0.9)|ko->en|NaN|
 
-### 데이터셋
+Gugugo-koja의 평가는 [AIHUB "한국어-일본어 번역 말뭉치"](https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=127)의 test데이터셋중 1000개 항목으로 이루어졌습니다.
+
+Gugugo-koja의 ko->ja부분 BLEU Score는 일본어를 한 글자씩 분리시켜 평가되었습니다. 실제 성능보다 낮게 표시될 수 있습니다.
+
+Gugugo-koen의 평가는 [AIHUB "기계번역 품질 검증 데이터"](https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=71475)를 사용합니다. 현재 평가가 진행중입니다.
+
+## Gugugo-koen
+
+Gugugo-koen는 한국어와 영어를 지원하는 양방향 번역 모델입니다.
+
+### Gugugo-koen-1.3B-V1.0
+
+#### 데이터셋
 
 [sharegpt_deepl_ko_translation](https://huggingface.co/datasets/squarelike/sharegpt_deepl_ko_translation)
 
 [sharegpt_deepl_ko](https://huggingface.co/datasets/junelee/sharegpt_deepl_ko)를 전처리하여 데이터셋을 제작하였습니다
 
-### 프롬프트
+#### 프롬프트
 
 - 한국어 -> 영어
 ```
@@ -36,7 +59,7 @@
 ### 영어:
 ```
 
-### 학습
+#### 학습
 
 Gugugo-koen-1.3B-V0.95를 기반으로 데이터셋을 학습시켰습니다
 
@@ -49,7 +72,7 @@ QLoRA를 사용해 RTX3060ti 8GB 1대로 학습을 진행했습니다.
 
 ![Train Loss Graph](./assets/Gugugo-koen-1.3B-V1.0_loss.png)
 
-### 출력 예시(비교)
+#### 출력 예시(비교)
 
 ```
 ### 영어: hello?</끝>
@@ -119,9 +142,9 @@ QLoRA를 사용해 RTX3060ti 8GB 1대로 학습을 진행했습니다.
 ### 한국어(V1): 6살 때 나는 자연의 진실이라는 책에서 원시림에 대한 이야기를 읽었습니다. 동물을 삼켜 삼키는 부아 콘스트릭의 그림이었습니다. 이 그림은 동물을 삼키는 보아 콘스트릭의 사진이었습니다. 다음은 그림의 사본입니다. 책에서는 이렇게 말했습니다: '부아 콘스트릭은 동물을 삼키지 않고 통째로 삼켜 먹는다. 그 후에는 소화를 위해 필요한 6개월 동안 잠을 잔다'고 말했습니다. 저는 깊은 생각에 잠겨 정글의 모험에 대해 생각했습니다. 그리고 색연필로 그림을 그리는 데 성공했습니다. 제 그림 번호 1번입니다. 다음과 같은 것 같았습니다: 저는 어른들에게 걸작을 보여주고, 그들에게 그림이 무서웠는지 물어봤습니다. 하지만 그들은 대답했습니다: '겁이 나요? 왜 모자가 무서워요?' 제 그림은 모자가 그려진 그림이 아니었습니다. 그것은 코끼리를 삼킨 보아 콘스트릭의 그림이었습니다. 하지만 어른들은 그것을 이해하지 못했기 때문에 다른 그림을 그렸습니다: 보아 콘스트릭의 내부를 그렸는데, 어른들이 그것을 분명히 볼 수 있도록 그렸습니다. 하지만 어른들은 그것을 이해하지 못했기 때문에 다른 그림을 그렸습니다: 보아 콘스트릭의 내부를 그렸는데, 어른들이 그것을 분명히 볼 수 있도록 그렸습니다. 항상 설명이 필요합니다. 제 그림 두 번째는 다음과 같았습니다:</끝>
 ```
 
-## Gugugo-koen-1.3B-V0.9 ~ V0.95
+### Gugugo-koen-1.3B-V0.9 ~ V0.95
 
-### 데이터셋
+#### 데이터셋
 
 [AIHUB "기술과학 분야 한-영 번역 병렬 말뭉치 데이터"](https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=71266)
 
@@ -138,9 +161,11 @@ QLoRA를 사용해 RTX3060ti 8GB 1대로 학습을 진행했습니다.
 
 한국어-영어 전체 약 970만 문장의 데이터를 사용했습니다.
 
-### 학습
+#### 학습
 
-#### V0.9
+##### V0.9
+
+[EleutherAI/polyglot-ko-1.3b](https://huggingface.co/EleutherAI/polyglot-ko-1.3b)를 기반으로 데이터셋을 학습시켰습니다
 
 QLoRA를 사용해 RTX4090 24GB 1대로 학습을 진행했습니다.
 - Epoch: 1
@@ -152,7 +177,7 @@ QLoRA를 사용해 RTX4090 24GB 1대로 학습을 진행했습니다.
 ![Train Loss Graph](./assets/Gugugo-koen-1.3B-V0.9_loss.png)
 ![Learning Rate Graph](./assets/Gugugo-koen-1.3B-V0.9_learning_rate.png)
 
-#### V0.95
+##### V0.95
 
 Gugugo-koen-1.3B-V0.9를 기반으로 같은 데이터셋을 1Epoch 더 학습시켰습니다.
 
@@ -165,9 +190,80 @@ QLoRA를 사용해 RTX4090 24GB 1대로 학습을 진행했습니다.
 
 ![Train Loss Graph](./assets/Gugugo-koen-1.3B-V0.95_loss.png)
 
+## Gugugo-koja
+
+Gugugo-koen는 한국어와 일본어를 지원하는 양방향 번역 모델입니다.
+
+### Gugugo-koja-1.3B-V0.95
+
+#### 데이터셋
+
+[AIHUB "한국어-일본어 번역 말뭉치"](https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=127)
+
+#### 프롬프트
+
+- 한국어 -> 일본어
+```
+### 일본어: 今日の朝食は何を食べましたか。</끝>
+### 한국어:
+```
+
+- 일본어 -> 한국어
+```
+### 한국어: 오늘 아침식사로 무엇을 드셨습니까?</끝>
+### 일본어:
+```
+
+#### 학습
+
+[EleutherAI/polyglot-ko-1.3b](https://huggingface.co/EleutherAI/polyglot-ko-1.3b)를 기반으로 데이터셋을 학습시켰습니다.
+
+QLoRA를 사용해 RTX3060ti 8GB 1대로 학습을 진행했습니다.
+- Epoch: 2
+- learning-rate: 3e-4
+- batch_size: 4
+- Lora r: 8
+- Lora target modules: query_key_value
+
+![Train Loss Graph](./assets/Gugugo-koja-1.3B-V0.95_loss.png)
+
+#### 출력 예시(비교)
+
+```
+### 일본어: 今日の朝食は何を食べましたか。</끝>
+### 한국어: 오늘 아침은 무엇을 드셨나요.</끝>
+```
+```
+### 일본어: 第十一條 國民は、すべての基本的人權の享有を妨げられない。この憲法が國民に保障する基本的人權は、侵すことのできない永久の權利として、現在及び將來の國民に與へられる。</끝>
+### 한국어: 제10조 국민은 모든 기본적 인권의 향유를 방해받지 아니한다. 이 헌법이 국민에게 보장하는 기본인권은 침해할 수 없는 영구한 권리로서 현재 및 장차의 대한민국 국민들에 의하여 주어진다.</끝>
+```
+```
+### 일본어: 第十二條 この憲法が國民に保障する自由及び權利は、國民の不斷の努力によつて、これを保持しなければならない。又、國民は、これを濫用してはならないのであつて、常に公共の福祉のためにこれを利用する責任を負ふ。</끝>
+### 한국어: 제12조 이 헌법이 국민에게 보장하는 자유 및 권리는 국민의 중단 노력에 따라 이를 보유해야 한다. 또한, 국민은 이 법을 남용해서는 안 되며 항상 공공복리를 위하여 이것을 이용할 책임을 진다.</끝>
+```
+```
+### 일본어: 第十三條 すべて國民は、個人として尊重される。生命、自由及び幸福追求に對する國民の權利については、公共の福祉に反しない限り、立法その他の國政の上で、最大の尊重を必要とする。
+</끝>
+### 한국어: 제13조 모든 국민은 개인으로서 존중받는다. 생명, 자유 및 행복추구에 대한 국민의 권리에 대해서는 공공복리를 침해하지 않는 한 입법부에서의 복권 이외에 다른 국정상에서 최대의 존대를 필요로 한다.</끝>
+```
+```
+### 한국어: 오늘 아침식사로 무엇을 드셨습니까?</끝>
+### 일본어: 今朝の食事で何を飲みましたか。</끝>
+```
+```
+### 한국어: 모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다.</끝>
+### 일본어: 全国民は人間としての尊厳や価値を持々で幸福を追求する権利を有する。国家には個人が所有する不可侵な基本的人権を確認し、それを保障する義務を負わう。</끝>
+```
+```
+### 한국어: 모든 국민은 법 앞에 평등하다. 누구든지 성별ㆍ종교 또는 사회적 신분에 의하여 정치적ㆍ경제적ㆍ사회적ㆍ문화적 생활의 모든 영역에 있어서 차별을 받지 아니한다.</끝>
+### 일본어: 全国民は法律上、平等であり、誰でも性別・宗教又他の税理的身体により政治的・経済的・社会的・文化的生活の全領域に関係なく巡播されています。</끝>
+```
+
 ## 한계점
 
-Polyglot-ko를 기반으로 하기 때문에 영어->한글 번역에서 더 성능이 좋습니다.
+Polyglot-ko를 기반으로 하기 때문에 한글로의 번역에서 더 성능이 좋습니다.
+
+한국어-일본어의 경우, 짧은 문장을 번역하지 못하는 이슈가 있습니다.
 
 데이터셋에서 구어체의 비중이 적기 때문에 구어체 번역에서 낮은 성능을 보입니다.
 
