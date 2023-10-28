@@ -12,9 +12,9 @@
 - 2023.07.13: Polyglot-ko 1.3B를 기반으로 [AIHUB](https://aihub.or.kr/) 970만 데이터가 학습된 [🤗Gugugo-koen-1.3B-V0.9](https://huggingface.co/squarelike/Gugugo-koen-1.3B-V0.9)를 공개합니다.(QLoRA로 학습, 병합모델)
 
 
-# Gugugo: Korean translation model based on Polyglot-ko
+# Gugugo: Large language model for korean translation
 
-[Polyglot-ko](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 및 를 기반으로 만들어진 한국어 번역 모델입니다.
+[Polyglot-ko](https://huggingface.co/EleutherAI/polyglot-ko-1.3b) 및 [Llama-2-ko](https://huggingface.co/beomi/llama-2-ko-7b)를 기반으로 만들어진 한국어 번역 모델입니다.
 
 ## 직접 해보기
 
