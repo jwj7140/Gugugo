@@ -56,14 +56,14 @@ def gen(lan="en", x=""):
 
 
 
-def translate(text_to_translation, tr_type):
+def translate(text_to_translate, tr_type):
     response = ""
     if (tr_type == "EN->KO"):
-        response = gen(lan="en", x=text_to_translation)
-        print({"type":"enko", "input":text_to_translation, "output":response})
+        response = gen(lan="en", x=text_to_translate)
+        print({"type":"enko", "input":text_to_translate, "output":response})
     elif (tr_type == "KO->EN"):
-        response = gen(lan="ko", x=text_to_translation)
-        print({"type":"koen", "input":text_to_translation, "output":response})
+        response = gen(lan="ko", x=text_to_translate)
+        print({"type":"koen", "input":text_to_translate, "output":response})
     return response
 
 
