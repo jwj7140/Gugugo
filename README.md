@@ -71,7 +71,7 @@ V1.0에 비해 장문 데이터 14만 개의 데이터 증강이 이뤄졌습니
 
 #### 학습
 
-Gugugo-koen-1.3B-V0.95를 기반으로 데이터셋을 학습시켰습니다
+[llama-2-ko-7b](https://huggingface.co/beomi/llama-2-ko-7b)를 기반으로 데이터셋을 학습시켰습니다
 
 QLoRA를 사용해 A6000 48GB 1대로 학습을 진행했습니다.
 - Epoch: 1
