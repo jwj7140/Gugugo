@@ -1,12 +1,6 @@
-# from transformers import pipeline
 import gradio as grad
-
-# model_name = "Helsinki-NLP/opus-mt-ko-en"
-# opus_translator = pipeline("translation", model=model_name)
-
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, StoppingCriteria, StoppingCriteriaList
-from peft import PeftModel
+from transformers import AutoTokenizer, AutoModelForCausalLM, StoppingCriteria, StoppingCriteriaList
 
 model_id = "squarelike/Gugugo-koen-7B-V1.1-GPTQ"
 
@@ -36,8 +30,10 @@ stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops=stop_words_i
 
 def gen(lan="en", x=""):
     if (lan == "ko"):
+        start = "### 영어:"
         prompt = f"### 한국어: {x}</끝>\n### 영어:"
     else:
+        start = "### 한국어:"
         prompt = f"### 영어: {x}</끝>\n### 한국어:"
     gened = model.generate(
         **tokenizer(
@@ -50,7 +46,9 @@ def gen(lan="en", x=""):
         num_beams=5,
         stopping_criteria=stopping_criteria
     )
-    return tokenizer.decode(gened[0][1:]).replace(prompt+" ", "").replace("</끝>", "")
+    text = tokenizer.decode(gened[0][1:])
+    text = text[text.find(start)+len(start)+1:]
+    return text[:text.find("</끝>")]
 
 
 
