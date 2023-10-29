@@ -46,10 +46,8 @@ def gen(lan="en", x=""):
             return_token_type_ids=False
         ).to("cuda"),
         max_new_tokens=2048,
-        temperature=0.01,
-        #no_repeat_ngram_size=5,
-        repetition_penalty=1.2,
-        do_sample=True,
+        temperature=0.3,
+        num_beams=5,
         stopping_criteria=stopping_criteria
     )
     return tokenizer.decode(gened[0][1:]).replace(prompt+" ", "").replace("</끝>", "")
