@@ -236,7 +236,7 @@ QLoRA를 사용해 RTX4090 24GB 1대로 학습을 진행했습니다.
 
 ## Gugugo-koja
 
-Gugugo-koen는 한국어와 일본어를 지원하는 양방향 번역 모델입니다.
+Gugugo-koja는 한국어와 일본어를 지원하는 양방향 번역 모델입니다.
 
 ### Gugugo-koja-1.3B-V0.95
 
