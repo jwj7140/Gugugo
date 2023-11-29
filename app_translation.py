@@ -30,10 +30,8 @@ stopping_criteria = StoppingCriteriaList([StoppingCriteriaSub(stops=stop_words_i
 
 def gen(lan="en", x=""):
     if (lan == "ko"):
-        start = "### 영어:"
         prompt = f"### 한국어: {x}</끝>\n### 영어:"
     else:
-        start = "### 한국어:"
         prompt = f"### 영어: {x}</끝>\n### 한국어:"
     gened = model.generate(
         **tokenizer(
@@ -46,8 +44,7 @@ def gen(lan="en", x=""):
         num_beams=5,
         stopping_criteria=stopping_criteria
     )
-    text = tokenizer.decode(gened[0][1:])
-    text = text[text.find(start)+len(start)+1:]
+    text = tokenizer.batch_decode(gened[:, len(tokenizer.encode(prompt)):])[0]
     return text[:text.find("</끝>")]
 
 
