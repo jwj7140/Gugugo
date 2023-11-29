@@ -3,6 +3,7 @@
 </p>
 
 ## Update Logs
+- 2023.11.04: Gugugo-koen-7B-V1.1를 이용한 [OpenOrca 데이터셋 번역 프로젝트](https://huggingface.co/datasets/squarelike/OpenOrca-gugugo-ko)가 진행 중입니다!
 - 2023.10.28: [Llama-2-ko](https://huggingface.co/beomi/llama-2-ko-7b)를 기반으로 학습된 [🤗Gugugo-koen-7B-V1.1](https://huggingface.co/squarelike/Gugugo-koen-7B-V1.1)를 공개합니다.
 - 2023.09.01: 한국어-일본어 번역 모델인 [🤗Gugugo-koja-1.3B-V0.95](https://huggingface.co/squarelike/Gugugo-koja-1.3B-V0.95)가 추가되었습니다.
 - 2023.07.27: 장문 번역이 학습된 [🤗Gugugo-koen-1.3B-V1.0](https://huggingface.co/squarelike/Gugugo-koen-1.3B-V1.0)를 공개합니다.(QLoRA로 학습, 병합모델)
@@ -236,7 +237,7 @@ QLoRA를 사용해 RTX4090 24GB 1대로 학습을 진행했습니다.
 
 ## Gugugo-koja
 
-Gugugo-koen는 한국어와 일본어를 지원하는 양방향 번역 모델입니다.
+Gugugo-koja는 한국어와 일본어를 지원하는 양방향 번역 모델입니다.
 
 ### Gugugo-koja-1.3B-V0.95
 
